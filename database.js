@@ -10,3 +10,4 @@ mongoose.model('superheros', Superhero);
 
 // we opened a connection to an instance of our local MongoDB.
 mongoose.connect('mongodb://localhost/node-superhero');
+

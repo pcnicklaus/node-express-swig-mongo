@@ -10,6 +10,9 @@ var swig = require('swig');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+// Add the requirement to app.js:
+var methodOverride = require('method-override');
+
 // Use the api variable to require a JS file within our routes folder.
 var api = require('./routes/api');
 var app = express();
@@ -19,6 +22,9 @@ app.set('views', path.join(__dirname, 'views'));
 var swig = new swig.Swig();
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
+
+// Then define the middleware just below the view engine setup in app.js:
+app.use(methodOverride('_method'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
